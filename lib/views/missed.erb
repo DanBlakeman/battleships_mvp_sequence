@@ -1,7 +1,24 @@
 Sorry dude, you've missed!
+<% miss_array = session[:player].misses %>
+<br>
+<% table = "<form>"
+  ("A".."J").each do |row|
+    table << "<tr>"
+    (1..10).each do |col|
+      if miss_array.include?(row + col.to_s)
+        sym = "o"
+      else
+        sym = "~"
+      end
+      table << "<td> #{sym} </td>"
+    end
+    table << "</tr><br>\n"
+  end
+  table << "</form>" %>
+<%= table %>
 <br>
 <% misses = ""
-   session[:player].misses.each { |miss| misses += "#{miss} " } %>
+   miss_array.each { |miss| misses += "#{miss} " } %>
 Your misses are: <%= misses %>
 <br>
 <form action='/fire' method='post'>

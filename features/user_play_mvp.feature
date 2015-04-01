@@ -33,3 +33,12 @@ Feature: MVP
     Then i should see "Game Over, Play again?"
     When i click "Play again?"
     Then I should be on the homepage
+
+  @ships_placed
+  Scenario: Once i've placed my ships i will see an empty board
+  Then i should see the board
+
+  @ships_placed
+  Scenario: Once i've missed a ship I can see it on the board
+  When i miss a ship
+  Then i should see the updated board

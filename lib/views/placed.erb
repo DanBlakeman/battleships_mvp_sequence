@@ -1,5 +1,16 @@
 'ships placed!'
 <br>
+<% table = "<form>"
+  ("A".."J").each do
+    table << "<tr>"
+    (1..10).each do
+      table << "<td> ~ </td>"
+    end
+    table << "</tr><br>\n"
+  end
+  table << "</form>" %>
+<%= table %>
+
 <form action='/fire' method='post'>
   <input type='text' name='to_fire_at'>
   <input type='submit' value='fire'>

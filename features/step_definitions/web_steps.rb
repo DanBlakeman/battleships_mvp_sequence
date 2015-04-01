@@ -58,3 +58,18 @@ Then(/^I should be on the homepage$/) do
   expect(page).to have_content("Welcome to Battleships, Please place your ships!")
 end
 
+Then(/^i should see the board$/) do
+  table = ((" ~ " * 10) + "\n") * 10
+  expect(page).to have_content(table)
+end
+
+When(/^i miss a ship$/) do
+  fill_in('to_fire_at', with: "J10")
+  click_button('fire')
+end
+
+Then(/^i should see the updated board$/) do
+  table = ((" ~ " * 10) + "\n") * 10
+  table = table[0..-5] + "o \n"
+  expect(page).to have_content(table)
+end

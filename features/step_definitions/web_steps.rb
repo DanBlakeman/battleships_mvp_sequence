@@ -45,3 +45,16 @@ end
 Then(/^I should see my misses$/) do
   expect(page).to have_content('Your misses are: A2')
 end
+
+Then(/^i should see "([^"]*)"$/) do |arg1|
+  expect(page).to have_content(arg1)
+end
+
+When(/^i click "([^"]*)"$/) do |arg1|
+  click_link(arg1)
+end
+
+Then(/^I should be on the homepage$/) do
+  expect(page).to have_content("Welcome to Battleships, Please place your ships!")
+end
+

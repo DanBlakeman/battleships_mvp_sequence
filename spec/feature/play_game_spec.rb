@@ -1,7 +1,7 @@
 feature 'player takes incoming' do
   scenario 'until lost' do
     player = Player.new
-    player.place(Destroyer, 'C5', :north)
+    player.place(Destroyer, 'C5', :north) # Creates a new destroyer, stored in Board.ships
     player.place(Submarine, 'E7', :north)
     player.place(Destroyer, 'A1', :east)
     player.place(Submarine, 'F9', :west)

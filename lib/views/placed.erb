@@ -1,14 +1,15 @@
+<style> td { align:center; } </style>
 'ships placed!'
 <br>
-<% table = "<form>"
-  ("A".."J").each do
-    table << "<tr>"
-    (1..10).each do
+<% table = "<table><tr><td>   </td><td> 1 </td><td> 2 </td><td> 3 </td><td> 4 </td><td> 5 </td><td> 6 </td><td> 7 </td><td> 8 </td><td> 9 </td><td> 10 </td></tr>"
+  ("A".."J").each do |row|
+    table << "<tr><td> #{row} </td>"
+    (1..10).each do |col|
       table << "<td> ~ </td>"
     end
-    table << "</tr><br>\n"
+    table << "</tr>\n"
   end
-  table << "</form>" %>
+  table << "</table>" %>
 <%= table %>
 
 <form action='/fire' method='post'>

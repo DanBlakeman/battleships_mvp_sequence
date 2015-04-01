@@ -59,7 +59,10 @@ Then(/^I should be on the homepage$/) do
 end
 
 Then(/^i should see the board$/) do
-  table = ((" ~ " * 10) + "\n") * 10
+  table = "   1  2  3  4  5  6  7  8  9  10  \n"
+  ("A".."J").each do |row|
+    table << (row + " " + (" ~ " * 10) + "\n")
+  end
   expect(page).to have_content(table)
 end
 
@@ -69,7 +72,10 @@ When(/^i miss a ship$/) do
 end
 
 Then(/^i should see the updated board$/) do
-  table = ((" ~ " * 10) + "\n") * 10
+  table = "   1  2  3  4  5  6  7  8  9  10  \n"
+  ("A".."J").each do |row|
+    table << (row + " " + (" ~ " * 10) + "\n")
+  end
   table = table[0..-5] + "o \n"
   expect(page).to have_content(table)
 end

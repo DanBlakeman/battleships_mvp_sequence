@@ -12,13 +12,17 @@ class Battleships < Sinatra::Base
   end
 
   post '/placed' do
-    session[:player].place(Destroyer, (params[:to_place].upcase), :east)
+    session[:player].place(Ship, (params[:place_ship_1].upcase), :east)
+    session[:player].place(Ship, (params[:place_ship_2].upcase), :east)
+    session[:player].place(Ship, (params[:place_ship_3].upcase), :east)
     erb :placed
   end
 
   post '/fire' do
     if session[:player].receive_hit(params[:to_fire_at]) == :miss
       erb :missed
+    elsif session[:player].receive_hit(params[:to_fire_at]) == :hit
+      erb :hit
     else
       "#{session[:player].receive_hit(params[:to_fire_at])}! YOU'VE WON!"
     end

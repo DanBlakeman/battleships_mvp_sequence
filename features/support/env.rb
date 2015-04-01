@@ -22,6 +22,11 @@ end
 
 Before('@ship_placed') do
   visit '/'
-  fill_in('to_place', with: 'A1')
+  fill_in('place_ship_1', with: 'A1')
   click_button('place')
+end
+
+Before('@ship_missed') do
+  fill_in('to_fire_at', with: 'A2')
+  click_button('fire')
 end

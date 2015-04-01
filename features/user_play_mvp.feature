@@ -3,15 +3,21 @@ Feature: MVP
   As a player
   I want to be able to place and fire at a ship
 
-  Scenario: Place Ship
+  Scenario: Place Ships
     Given I visit the homepage
     And enter some coordinates
     When I press place
-    Then i should see 'ship placed!'
+    Then i should see 'ships placed!'
 
   @ship_placed
-  Scenario: Fire at Ship
-    Given i enter coordinates of a ship
+  Scenario: Fire at all ships
+    Given i enter coordinates of ship "A1"
+    When I press fire
+    Then i should see 'hit'
+    Given i enter coordinates of ship "B1"
+    When I press fire
+    Then i should see 'hit'
+    Given i enter coordinates of ship "C1"
     When I press fire
     Then i should see 'hit'
 
@@ -21,3 +27,10 @@ Feature: MVP
     When I press fire
     Then i should see 'miss'
     And i should be able to fire again
+
+  @ship_placed @ship_missed
+  Scenario: Have record of misses
+    Then I should see my misses
+
+  @ship_placed
+  Scenario: All ships sunk, won game

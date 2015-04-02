@@ -1,0 +1,25 @@
+<% def cell_mark(row, column)
+     return "o" if session[:player].misses.include?(column + row.to_s)
+     "~"
+   end %>
+
+<table id='board'>
+  <tr>
+    <td></td>
+    <% ("A".."J").each do |letter| %>
+      <td> <%= letter %> </td>
+    <% end %>
+  </tr>
+
+  <% (1..10).each do |row| %>
+    <tr><td> <%= row %> </td>
+      <% ("A".."J").each do |col| %>
+        <td> <%= cell_mark(row, col) %> </td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
+
+
+
+

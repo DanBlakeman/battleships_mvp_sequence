@@ -5,10 +5,28 @@ require_relative 'destroyer'
 class Battleships < Sinatra::Base
   enable :sessions
 
+  @@visitor_number = 0
+  PLAYER_ONE = Player.new
+  PLAYER_TWO = Player.new
+
   get '/' do
-    session[:player] = Player.new
-    session[:player2] = Player.new
-    erb :index
+    if @@visitor_number == 0
+      session[:player] = 1
+      @@visitor_number += 1
+      @player_num = 1
+      "Welcome, Player 1! Please wait for another player to join!"
+    elsif session[:player] == 1 && @@visitor_number = 1
+      "Please wait for another player to join!"
+    elsif @@visitor_number == 1
+      session[:player] = 2
+      @@visitor_number += 1
+      @player_num = 2
+      "Thanks for joining, waiting for Player 1 to place their ships!"
+    elsif session[:player] == 1
+      erb :index
+    else
+      "Snap Bang! This Game Is Full!"
+    end
   end
 
   post '/placed' do

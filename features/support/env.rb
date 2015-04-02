@@ -20,9 +20,11 @@ World do
   BattleshipsWorld.new
 end
 
-Before('@ship_placed') do
+Before('@ships_placed') do
   visit '/'
   fill_in('place_ship_1', with: 'A1')
+  fill_in('place_ship_2', with: 'B1')
+  fill_in('place_ship_3', with: 'C1')
   click_button('place')
 end
 

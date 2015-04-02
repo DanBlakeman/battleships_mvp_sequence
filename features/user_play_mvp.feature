@@ -9,7 +9,7 @@ Feature: MVP
     When I press place
     Then i should see 'ships placed!'
 
-  @ship_placed
+  @ships_placed
   Scenario: Fire at all ships
     Given i enter coordinates of ship "A1"
     When I press fire
@@ -21,16 +21,16 @@ Feature: MVP
     When I press fire
     Then i should see 'hit'
 
-  @ship_placed
+  @ships_placed
   Scenario: Miss a Ship
     Given i enter coordinates where no ship
     When I press fire
     Then i should see 'miss'
     And i should be able to fire again
 
-  @ship_placed @ship_missed
+  @ships_placed @ship_missed
   Scenario: Have record of misses
     Then I should see my misses
 
-  @ship_placed
+  @ships_placed
   Scenario: All ships sunk, won game

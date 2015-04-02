@@ -1,13 +1,5 @@
 <style> td { align:center; } </style>
 Sorry dude, you've missed!
-The computer: <%= @computers_hit %>
-<% miss_array = session[:computer].misses %>
-<br>
-<%= erb :board %>
-<br>
-<% misses = ""
-   miss_array.each { |miss| misses += "#{miss} " } %>
-Your misses are: <%= misses %>
 <br>
 <form action='/fire' method='post'>
   <input type='text' name='to_fire_at'>

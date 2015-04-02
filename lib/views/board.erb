@@ -1,7 +1,12 @@
 <% def cell_mark(row, column)
-     return "o" if session[:player].misses.include?(column + row.to_s)
+    if session[:player].misses.include?(column + row.to_s)
+      return "o"
+    elsif session[:player].hits.include?(column + row.to_s)
+      return "*"
+    else
      "~"
-   end %>
+    end
+  end %>
 
 <table id='board'>
   <tr>

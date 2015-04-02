@@ -3,6 +3,10 @@ Feature: MVP
   As a player
   I want to be able to place and fire at a ship
 
+  Scenario: Homepage contains the board
+    Given I visit the homepage
+    Then I should see the board
+
   Scenario: Place Three Ships
     Given I visit the homepage
     And enter some coordinates
@@ -41,4 +45,9 @@ Feature: MVP
   @ships_placed
   Scenario: Once i've missed a ship I can see it on the board
   When i miss a ship
-  Then i should see the updated board
+  Then i should see a "o" on the board
+
+  @ships_placed
+  Scenario: Once i've hit a ship I can see it on the board
+  When i hit a ship
+  Then i should see a "*" on the board

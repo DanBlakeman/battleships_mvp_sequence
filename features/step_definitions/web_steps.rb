@@ -2,6 +2,10 @@ Given(/^I visit the homepage$/) do
   visit '/'
 end
 
+Then(/^I should see the board$/) do
+  expect(page).to have_table('board')
+end
+
 And(/^enter some coordinates$/) do
   fill_in('place_ship_1', with: 'A1')
   fill_in('place_ship_2', with: 'B1')
@@ -67,6 +71,12 @@ When(/^i miss a ship$/) do
   click_button('fire')
 end
 
-Then(/^i should see the updated board$/) do
-  expect(find 'td', text: 'o').to have_content('o')
+When(/^i hit a ship$/) do
+  fill_in('to_fire_at', with: "A1")
+  click_button('fire')
 end
+
+Then(/^i should see a "([^"]*)" on the board$/) do |arg1|
+  expect(find 'td', text: arg1).to have_content(arg1)
+end
+

@@ -3,11 +3,11 @@ require_relative 'player'
 require_relative 'destroyer'
 
 class Battleships < Sinatra::Base
-
   enable :sessions
 
   get '/' do
     session[:player] = Player.new
+    session[:player2] = Player.new
     erb :index
   end
 

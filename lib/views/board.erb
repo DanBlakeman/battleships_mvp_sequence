@@ -28,6 +28,7 @@ Your Board:
 </table>
 
 Computers Board:
+Psssst here's a hint -> <%= shippys = "";session[:computer].board.ships.each { |ship| shippys << ship.start_position}; shippys %>
 
 <% def cell_mark(row, column)
     if session[:computer].misses.include?(column + row.to_s)

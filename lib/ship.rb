@@ -25,7 +25,7 @@ class Ship
 
   private
 
-  attr_reader :direction, :start_position
+  attr_reader :direction
 
   def calculate_full_position
     @position = [start_position]

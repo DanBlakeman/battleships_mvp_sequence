@@ -1,6 +1,7 @@
 <style> td { align:center; } </style>
 Sorry dude, you've missed!
-<% miss_array = session[:player].misses %>
+The computer: <%= @computers_hit %>
+<% miss_array = session[:computer].misses %>
 <br>
 <%= erb :board %>
 <br>

@@ -1,4 +1,5 @@
 hit! You have hit a ship, still some left!
+Computer did <%= @computers_hit %>
 <br>
 <% misses = ""
    session[:player].misses.each { |miss| misses += "#{miss} " } %>

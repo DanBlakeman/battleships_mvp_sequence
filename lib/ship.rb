@@ -1,5 +1,5 @@
 class Ship
-  attr_reader :position, :hits, :size
+  attr_reader :position, :hits, :size, :start_position
 
   def initialize start_position, direction, size = 1
     @direction = direction

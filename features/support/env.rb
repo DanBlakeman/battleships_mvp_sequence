@@ -7,6 +7,7 @@ require File.join(File.dirname(__FILE__), '..', '..', 'lib/battleships.rb')
 require 'capybara'
 require 'capybara/cucumber'
 require 'rspec'
+require 'capybara/rspec'
 
 Capybara.app = Battleships
 
@@ -30,5 +31,12 @@ end
 
 Before('@ship_missed') do
   fill_in('to_fire_at', with: 'A2')
+  click_button('fire')
+end
+
+Before('@two_ships_hit') do
+  fill_in('to_fire_at', with: 'A1')
+  click_button('fire')
+  fill_in('to_fire_at', with: 'B1')
   click_button('fire')
 end

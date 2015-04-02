@@ -1,5 +1,10 @@
+<style> td { align:center; } </style>
 'ships placed!'
 <br>
+<%= erb :board %>
+
+
+
 <form action='/fire' method='post'>
   <input type='text' name='to_fire_at'>
   <input type='submit' value='fire'>

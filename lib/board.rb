@@ -34,6 +34,6 @@ class Board
   def illegal_position? ship
     position = ship.position
     position = position.join if position.respond_to? :join
-    !(position =~ /^([A-Z][0-9])+$/)
+    !(position =~ /^([A-J][0-9])+$/)
   end
 end

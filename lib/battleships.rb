@@ -3,11 +3,11 @@ require_relative 'player'
 require_relative 'destroyer'
 
 class Battleships < Sinatra::Base
-
   enable :sessions
 
   get '/' do
     session[:player] = Player.new
+    session[:player2] = Player.new
     erb :index
   end
 
@@ -19,12 +19,12 @@ class Battleships < Sinatra::Base
   end
 
   post '/fire' do
-    if session[:player].receive_hit(params[:to_fire_at]) == :miss
+    if session[:player].receive_hit(params[:to_fire_at].upcase) == :miss
       erb :missed
-    elsif session[:player].receive_hit(params[:to_fire_at]) == :hit
-      erb :hit
+    elsif session[:player].lost?
+      "hit! Game Over, <a href='/'>Play again?</a>"
     else
-      "#{session[:player].receive_hit(params[:to_fire_at])}! YOU'VE WON!"
+      erb :hit
     end
   end
 
